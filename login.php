@@ -161,5 +161,8 @@ header("Location: index.php");
             </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
 </html>

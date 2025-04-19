@@ -204,6 +204,8 @@ $categories = $pdo->query("SELECT DISTINCT categorie FROM livres ORDER BY catego
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
     <script>
     function emprunterLivre(id) {
         if(confirm('Voulez-vous emprunter ce livre ?')) {

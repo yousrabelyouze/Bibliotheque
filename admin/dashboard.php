@@ -391,65 +391,65 @@ $utilisateurs_actifs = $pdo->query("SELECT id, nom FROM utilisateurs WHERE actif
         <!-- Dashboard Section -->
         <section id="dashboardSection" class="block p-6">
             <div class="section-header">
-                <header class="flex justify-between items-center mb-8">
-                    <h1 class="text-3xl font-bold text-gray-800">Tableau de bord</h1>
+        <header class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">Tableau de bord</h1>
                     <div class="relative">
-                        <input type="text" placeholder="Rechercher..." class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
-                    </div>
-                </header>
+                <input type="text" placeholder="Rechercher..." class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
             </div>
-            
-            <!-- Statistiques -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                <div class="bg-white p-6 shadow rounded">
-                    <p class="text-gray-600">Total livres</p>
-                    <p class="text-2xl font-bold"><?= $totalLivres ?></p>
-                </div>
-                <div class="bg-white p-6 shadow rounded">
-                    <p class="text-gray-600">Emprunts en cours</p>
-                    <p class="text-2xl font-bold"><?= $totalEmprunts ?></p>
-                </div>
-                <div class="bg-white p-6 shadow rounded">
-                    <p class="text-gray-600">Utilisateurs actifs</p>
-                    <p class="text-2xl font-bold"><?= $totalUtilisateurs ?></p>
-                </div>
+        </header>
             </div>
 
-            <!-- Derniers livres -->
-            <div class="bg-white p-6 shadow rounded">
-                <h2 class="text-xl font-semibold mb-4">Derniers livres ajoutés</h2>
-                <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-                <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Titre</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Auteur</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date de publication</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Disponibilité</th>
-                </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-                <?php foreach ($derniersLivres as $livre): ?>
-                <tr>
-                    <td class="px-6 py-4"><?= htmlspecialchars($livre['titre']) ?></td>
-                    <td class="px-6 py-4"><?= htmlspecialchars($livre['auteur']) ?></td>
-                    <td class="px-6 py-4">
-                        <?= isset($livre['date_publication']) ? date('Y', strtotime($livre['date_publication'])) : 'N/A' ?>
-                    </td>
-                    <td class="px-6 py-4">
-                        <?php if ($livre['statut'] === 'Disponible'): ?>
-                            <span class="px-2 inline-flex text-xs font-semibold rounded-full bg-green-100 text-green-800">Disponible</span>
-                        <?php else: ?>
-                            <span class="px-2 inline-flex text-xs font-semibold rounded-full bg-red-100 text-red-800"><?= $livre['statut'] ?></span>
-                        <?php endif; ?>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+        <!-- Statistiques -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div class="bg-white p-6 shadow rounded">
+            <p class="text-gray-600">Total livres</p>
+            <p class="text-2xl font-bold"><?= $totalLivres ?></p>
+        </div>
+        <div class="bg-white p-6 shadow rounded">
+            <p class="text-gray-600">Emprunts en cours</p>
+            <p class="text-2xl font-bold"><?= $totalEmprunts ?></p>
+        </div>
+        <div class="bg-white p-6 shadow rounded">
+            <p class="text-gray-600">Utilisateurs actifs</p>
+            <p class="text-2xl font-bold"><?= $totalUtilisateurs ?></p>
+        </div>
+    </div>
 
-            </div>
-        </section>
+    <!-- Derniers livres -->
+    <div class="bg-white p-6 shadow rounded">
+        <h2 class="text-xl font-semibold mb-4">Derniers livres ajoutés</h2>
+        <table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+        <tr>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Titre</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Auteur</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date de publication</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Disponibilité</th>
+        </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+        <?php foreach ($derniersLivres as $livre): ?>
+        <tr>
+            <td class="px-6 py-4"><?= htmlspecialchars($livre['titre']) ?></td>
+            <td class="px-6 py-4"><?= htmlspecialchars($livre['auteur']) ?></td>
+            <td class="px-6 py-4">
+                <?= isset($livre['date_publication']) ? date('Y', strtotime($livre['date_publication'])) : 'N/A' ?>
+            </td>
+            <td class="px-6 py-4">
+                <?php if ($livre['statut'] === 'Disponible'): ?>
+                    <span class="px-2 inline-flex text-xs font-semibold rounded-full bg-green-100 text-green-800">Disponible</span>
+                <?php else: ?>
+                    <span class="px-2 inline-flex text-xs font-semibold rounded-full bg-red-100 text-red-800"><?= $livre['statut'] ?></span>
+                <?php endif; ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+        </div>
+    </section>
 
         <!-- Books Management Section -->
         <section id="booksSection" class="hidden">
@@ -499,11 +499,11 @@ $utilisateurs_actifs = $pdo->query("SELECT id, nom FROM utilisateurs WHERE actif
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     <?= htmlspecialchars($livre['id']) ?>
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
+            <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm font-medium text-gray-900">
                                         <?= htmlspecialchars($livre['titre']) ?>
                                     </div>
-                                </td>
+            </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-900">
                                         <?= htmlspecialchars($livre['auteur']) ?>
@@ -522,15 +522,15 @@ $utilisateurs_actifs = $pdo->query("SELECT id, nom FROM utilisateurs WHERE actif
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                     <button onclick="editBook(<?= $livre['id'] ?>)" class="text-blue-600 hover:text-blue-900 mr-3">
-                                        <i class="fas fa-edit"></i>
+                    <i class="fas fa-edit"></i>
                                     </button>
                                     <button onclick="deleteBook(<?= $livre['id'] ?>)" class="text-red-600 hover:text-red-900">
-                                        <i class="fas fa-trash"></i>
+                    <i class="fas fa-trash"></i>
                                     </button>
-                                </td>
-                            </tr>
+            </td>
+        </tr>
                             <?php endwhile; ?>
-                        </tbody>
+</tbody>
                     </table>
                 </div>
 
@@ -894,7 +894,7 @@ $utilisateurs_actifs = $pdo->query("SELECT id, nom FROM utilisateurs WHERE actif
                                    name="userPhone" 
                                    type="tel" 
                                    placeholder="Numéro de téléphone">
-                        </div>
+                </div>
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="userAddress">Adresse</label>
                             <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
@@ -902,7 +902,7 @@ $utilisateurs_actifs = $pdo->query("SELECT id, nom FROM utilisateurs WHERE actif
                                       name="userAddress" 
                                       placeholder="Adresse complète"
                                       rows="3"></textarea>
-                        </div>
+                </div>
                         <div class="flex justify-end border-t pt-4">
                             <button type="button" class="bg-gray-300 text-gray-700 px-4 py-2 rounded mr-2 hover:bg-gray-400" onclick="hideModal('addUserModal')">Annuler</button>
                             <button type="submit" name="add_user" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
@@ -957,8 +957,8 @@ $utilisateurs_actifs = $pdo->query("SELECT id, nom FROM utilisateurs WHERE actif
                         </div>
                     </form>
                 </div>
+                </div>
             </div>
-        </div>
 
         <!-- Edit Book Modal -->
         <div id="editBookModal" class="modal fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden">
@@ -1034,8 +1034,8 @@ $utilisateurs_actifs = $pdo->query("SELECT id, nom FROM utilisateurs WHERE actif
                         </div>
                     </form>
                 </div>
-            </div>
         </div>
+    </div>
 
         <!-- Edit User Modal -->
         <div id="editUserModal" class="modal fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden">

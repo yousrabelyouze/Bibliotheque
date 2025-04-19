@@ -328,6 +328,27 @@ document.getElementById('password-form').addEventListener('submit', function(e) 
 });
 </script>
 
-<?php
-require_once 'includes/footer.php';
-?> 
+<?php require_once 'includes/footer.php'; ?>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+<script>
+// Fonctions pour le modal de changement de mot de passe
+function showChangePasswordModal() {
+    document.getElementById('password-modal').style.display = 'block';
+}
+
+function hideChangePasswordModal() {
+    document.getElementById('password-modal').style.display = 'none';
+}
+
+// Fermer le modal si on clique en dehors
+window.onclick = function(event) {
+    const modal = document.getElementById('password-modal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+</script>
+</body>
+</html> 

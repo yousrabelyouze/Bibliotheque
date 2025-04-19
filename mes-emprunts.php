@@ -220,4 +220,9 @@ require_once 'includes/header.php';
 <?php
 // Inclure le pied de page
 require_once 'includes/footer.php';
-?> 
+?>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+</body>
+</html> 

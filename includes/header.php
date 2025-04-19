@@ -71,4 +71,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
             unset($_SESSION['error']);
             ?>
         </div>
-    <?php endif; ?> 
+    <?php endif; ?>
+    <script src="js/main.js"></script>
+</body>
+</html> 
