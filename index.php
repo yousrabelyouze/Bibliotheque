@@ -12,11 +12,11 @@
 <link rel="stylesheet" href="css/books.css">
 <link rel="stylesheet" href="css/admin.css">
 </head>
-<<body class="<?php echo isset($_SESSION['user_id']) ? 'user-mode' : 'guest-mode'; ?>">
+<body class="<?php echo isset($_SESSION['user_id']) ? 'user-mode' : 'guest-mode'; ?>">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-<a href="index.html" class="logo">
+<a href="index.php" class="logo">
                 <i class="fas fa-book-open"></i>
                 <span>I.N.S.F.P BEB</span>
         </a>
@@ -33,7 +33,7 @@
 
             <?php else: ?>
                 <!-- Liens pour les utilisateurs connectés -->
-                <a href="index.html" <?php echo $current_page === 'index.php' ? 'class="active"' : ''; ?>>Accueil</a>
+        <a href="index.php" <?php echo $current_page === 'index.php' ? 'class="active"' : ''; ?>>Accueil</a>
 <a href="livres.php" <?php echo $current_page === 'livres.php' ? 'class="active"' : ''; ?>>Catalogue</a>
 <a href="profile.php" class="user-only">Mon profil</a>
 

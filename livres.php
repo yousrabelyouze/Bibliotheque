@@ -32,7 +32,7 @@ $categories = $pdo->query("SELECT DISTINCT categorie FROM livres ORDER BY catego
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-<a href="index.html" class="logo">
+<a href="index.php" class="logo">
                 <i class="fas fa-book-open"></i>
                 <span>I.N.S.F.P BEB</span>
         </a>
@@ -49,7 +49,7 @@ $categories = $pdo->query("SELECT DISTINCT categorie FROM livres ORDER BY catego
 
             <?php else: ?>
                 <!-- Liens pour les utilisateurs connectés -->
-                <a href="index.html" <?php echo $current_page === 'index.php' ? 'class="active"' : ''; ?>>Accueil</a>
+    <a href="index.php" <?php echo $current_page === 'index.php' ? 'class="active"' : ''; ?>>Accueil</a>
 <a href="livres.php" <?php echo $current_page === 'livres.php' ? 'class="active"' : ''; ?>>Catalogue</a>
 <a href="profile.php" class="user-only">Mon profil</a>
 
@@ -99,7 +99,7 @@ $categories = $pdo->query("SELECT DISTINCT categorie FROM livres ORDER BY catego
                 <select id="category-filter" aria-label="Filtrer par catégorie">
                     <option value="">Toutes les catégories</option>
                     <?php foreach($categories as $categorie): ?>
-                        <option value="<?= htmlspecialchars($categorie) ?>"><?= htmlspecialchars($categorie) ?></option>
+                <option value="<?= htmlspecialchars($categorie) ?>"><?= htmlspecialchars($categorie) ?></option>
                     <?php endforeach; ?>
                 </select>
                 <select id="availability-filter" aria-label="Filtrer par disponibilité">
